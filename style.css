@@ -1,0 +1,152 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+#card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+
+    width: 90%;
+    margin: 1rem auto 0 auto;
+}
+
+.top-bar { 
+    grid-column: span 6; 
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+}
+
+#add-book-btn {
+    cursor: pointer;
+    appearance: none;
+    outline: none;
+    border: 1px solid #dadada;
+    padding: 0.4rem 1.2rem;
+
+    font-size: 0.95rem;
+    color: #fff;
+    background-color: #2db72d;
+}
+
+#add-book-btn:hover {
+    background-color: #d4d4d4;
+    color: #fcfcfc;
+}
+
+.card {
+    height: 180px;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    border: 0.2px solid #eee;
+    margin: 0 6%;
+    text-align: center;
+    box-shadow: 4px 0px 12px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    padding: 0.5rem 0;
+}
+
+.book-icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+.book-info {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 80%;
+    margin: 0 auto;
+    /* padding: 0.6rem 0 4rem 0; */
+    border-top: 1px solid #b5afaf;
+
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+#add-book-dialog {
+    position: fixed;
+    top: 25px;
+
+    width: 30%;
+    border: none;
+    margin: 0 auto;
+}
+
+#add-book-dialog > form {
+    margin: 0 1rem 1rem 1rem;
+}
+
+#dialog-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    height: 3rem;
+}
+
+.close-btn {
+    cursor: pointer;
+    appearance: none;
+    border: none;
+    background-color: inherit;
+}
+
+#dialog-body {
+   display: flex;
+   flex-direction: column; 
+   align-items: center;
+}
+
+.book-data-input {
+    width: 80%;
+    appearance: none;
+    border: 0.2px solid #e6dede;
+    height: 2rem;
+    border-radius: 16px;
+    padding: 0.3rem 0 0.3rem 1.2rem;
+    margin-bottom: 0.8rem;
+
+    font-size: 0.95rem;
+    color: #999;
+    background-color: #dadada;
+}
+
+.book-data-input:focus {
+    outline: none;
+    border: 2px solid #dadada;
+}
+
+#dialog-footer {
+    display: flex;
+    justify-content: center;
+}
+
+#submit-book-btn {
+    cursor: pointer;
+    appearance: none;
+    border: 1px solid #dadada;
+    padding: 0.4rem 1.2rem;
+
+    font-size: 0.95rem;
+    color: #fff;
+    background-color: #5959c5;
+}
