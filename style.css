@@ -57,6 +57,18 @@
     padding: 0.5rem 0;
 }
 
+.top-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0.4rem;
+}
+
+.delete-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: red;
+}
+
 .book-icon {
     width: 2rem;
     height: 2rem;

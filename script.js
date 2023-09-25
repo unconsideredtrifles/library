@@ -1,21 +1,23 @@
-const myLibrary = [
-    new Book("Lord of the Mysteries", "爱潜水的乌贼", 1000, 1),
-    new Book("Ryn of Avonside", "QuietValerie", 800, 2),
-    new Book("Flowers in the Dungeon", "JAW (formerly JAK)", 120, 3),
-];
-
 function Book(title, author, pages, readingStatusIdx) {
     let readingStatuses = [
         "To Read",
         "Reading",
         "Finished",
     ];
+    this.bookIdx = this.nextBookIdx;
+    Object.getPrototypeOf(this).nextBookIdx++;
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.readingStatus = readingStatuses[readingStatusIdx - 1];
 }
+Book.prototype.nextBookIdx = 0;
 
+const myLibrary = [
+    new Book("Lord of the Mysteries", "爱潜水的乌贼", 1000, 1),
+    new Book("Ryn of Avonside", "QuietValerie", 800, 2),
+    new Book("Flowers in the Dungeon", "JAW (formerly JAK)", 120, 3),
+];
 
 function ifInvalidInput(...params) {
 
@@ -45,6 +47,8 @@ function displayBook(book) {
     let bookCardTemplate = document.getElementById("book-card");
     let bookCard = bookCardTemplate.content.cloneNode(true);
 
+    let mainCard = bookCard.querySelector(".card");
+    mainCard.setAttribute("data-book-index", `card-${book.bookIdx}`);
     let bookTitle = bookCard.querySelector(".book-title");
     bookTitle.textContent = book.title;
     let bookAuthor = bookCard.querySelector(".book-author");
@@ -55,9 +59,9 @@ function displayBook(book) {
 }
 
 function displayAllBooks() {
-    for(eachBook of myLibrary) {
+    myLibrary.forEach((eachBook) => {
         displayBook(eachBook);
-    }
+    });
 }
 
 const addBookDialog = document.getElementById("add-book-dialog");
