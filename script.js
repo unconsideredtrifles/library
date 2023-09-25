@@ -13,7 +13,7 @@ function Book(title, author, pages, readingStatusIdx) {
 }
 Book.prototype.nextBookIdx = 0;
 
-const myLibrary = [
+let myLibrary = [
     new Book("Lord of the Mysteries", "爱潜水的乌贼", 1000, 1),
     new Book("Ryn of Avonside", "QuietValerie", 800, 2),
     new Book("Flowers in the Dungeon", "JAW (formerly JAK)", 120, 3),
@@ -41,11 +41,26 @@ function addBookToLibrary(bookTitle, bookAuthor, pages, readingStatus) {
 
     let bookToAdd = new Book(bookTitle, bookAuthor, pages, readingStatus);
     myLibrary.push(bookToAdd);
+    displayBook(bookToAdd);
 }
 
 function displayBook(book) {
+    let cards = document.getElementById("card-wrapper");
     let bookCardTemplate = document.getElementById("book-card");
     let bookCard = bookCardTemplate.content.cloneNode(true);
+
+    let deleteBtn = bookCard.querySelector(".delete-icon");
+    deleteBtn.addEventListener("click", function(e) {
+        let cardToDelete = this.parentElement;
+        for(let i = 0; i < 3; i++) {
+            cardToDelete = cardToDelete.parentElement;
+        }
+        cards.removeChild(cardToDelete);
+
+        let dataBookIdx = cardToDelete.getAttribute("data-book-index");
+        let bookIdxToDelete = Number(dataBookIdx.slice(5));
+        myLibrary = myLibrary.filter(eachBook => (eachBook.bookIdx != bookIdxToDelete))
+    })
 
     let mainCard = bookCard.querySelector(".card");
     mainCard.setAttribute("data-book-index", `card-${book.bookIdx}`);
@@ -54,7 +69,6 @@ function displayBook(book) {
     let bookAuthor = bookCard.querySelector(".book-author");
     bookAuthor.textContent = book.author;
 
-    let cards = document.getElementById("card-wrapper");
     cards.appendChild(bookCard);
 }
 
