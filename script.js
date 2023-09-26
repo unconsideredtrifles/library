@@ -62,7 +62,7 @@ function displayBook(book) {
 
         let dataBookIdx = cardToDelete.getAttribute("data-book-index");
         let bookIdxToDelete = Number(dataBookIdx.slice(5));
-        myLibrary = myLibrary.filter(eachBook => (eachBook.bookIdx != bookIdxToDelete))
+        myLibrary = myLibrary.filter(eachBook => (eachBook.bookIdx != bookIdxToDelete));
     })
 
     let readingStatusEditor = bookCard.querySelector(".reading-status-edit");
