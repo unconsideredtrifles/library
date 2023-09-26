@@ -127,3 +127,7 @@ const dialogOpenBtn = document.getElementById("add-book-btn");
 dialogOpenBtn.addEventListener("click", () => {
     addBookDialog.showModal();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    displayAllBooks();
+});
