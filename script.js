@@ -114,13 +114,16 @@ submitBookBtn.addEventListener("click", (e) => {
     let inputFields = document.getElementsByClassName("book-data-input");
     let bookTitle = inputFields[0].value;
     let bookAuthor = inputFields[1].value;
-    let pages = document.getElementById("page-number-input").value;
-    let readingStatus = document.getElementById("reading-status").value;
+    let pages = document.getElementById("page-number-input");
+    let readingStatus = document.getElementById("reading-status");
+    let totalPages = pages.value;
+    let readingStatusValue = readingStatus.value;
 
     inputFields[0].value = "";
     inputFields[1].value = "";
+    pages.value = ""
 
-    addBookToLibrary(bookTitle, bookAuthor, +pages, +readingStatus);
+    addBookToLibrary(bookTitle, bookAuthor, +totalPages, +readingStatusValue);
     addBookDialog.close();
 });
 
