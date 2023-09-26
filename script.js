@@ -118,7 +118,7 @@ submitBookBtn.addEventListener("click", (e) => {
     inputFields[0].value = "";
     inputFields[1].value = "";
 
-    addBookToLibrary(bookTitle, bookAuthor, pages, readingStatus);
+    addBookToLibrary(bookTitle, bookAuthor, +pages, +readingStatus);
     addBookDialog.close();
 });
 
