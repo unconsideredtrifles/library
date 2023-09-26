@@ -63,12 +63,38 @@ function displayBook(book) {
         myLibrary = myLibrary.filter(eachBook => (eachBook.bookIdx != bookIdxToDelete))
     })
 
+    let readingStatusEditor = bookCard.querySelector(".reading-status-edit");
+    readingStatusEditor.addEventListener("click", function() {
+        let readingStatus = this.parentElement;
+        let readingStatusIdx = +readingStatus.getAttribute("data-reading-status");
+        readingStatusIdx = (readingStatusIdx === 3) ? 1 : (readingStatusIdx + 1);
+        readingStatus.setAttribute("data-reading-status", readingStatusIdx);
+
+        let currentBookCard = readingStatus.parentElement.parentElement.parentElement;
+        let currentBookIdx = +currentBookCard.getAttribute("data-book-index").slice(5);
+        let currentBook = myLibrary.find((eachBook) => {
+            return eachBook.bookIdx === currentBookIdx;
+        });
+
+        currentBook.readingStatusIdx = readingStatusIdx;
+        currentBook.readingStatus = currentBook.readingStatuses[readingStatusIdx - 1];
+
+        let readingStatusText = readingStatus.getElementsByClassName("reading-status-text")[0];
+        readingStatusText.textContent = currentBook.readingStatus;
+    });
+
     let mainCard = bookCard.querySelector(".card");
     mainCard.setAttribute("data-book-index", `card-${book.bookIdx}`);
     let bookTitle = bookCard.querySelector(".book-title");
     bookTitle.textContent = book.title;
     let bookAuthor = bookCard.querySelector(".book-author");
     bookAuthor.textContent = book.author;
+    let bookPages = bookCard.querySelector(".pages");
+    bookPages.textContent = `${book.pages} pages`;
+    let readingStatus = bookCard.querySelector(".status");
+    readingStatus.setAttribute("data-reading-status", book.readingStatusIdx);
+    let readingStatusText = readingStatus.getElementsByClassName("reading-status-text")[0];
+    readingStatusText.textContent = book.readingStatus;
 
     cards.appendChild(bookCard);
 }
