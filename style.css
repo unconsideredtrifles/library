@@ -63,6 +63,7 @@
     width: 1.2rem;
     height: 1.2rem;
     fill: red;
+    cursor: pointer;
 }
 
 .book-icon {
@@ -114,6 +115,7 @@
 .reading-status-edit {
     width: 1.2rem;
     fill: #70707a;
+    cursor: pointer;
 }
 
 #add-book-dialog {
