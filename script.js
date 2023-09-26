@@ -14,13 +14,12 @@ Book.prototype.readingStatuses = [
 ];
 Book.prototype.nextBookIdx = 0;
 
-/* let myLibrary = [
+let myLibrary = [
     new Book("Nexus Alpha", "Elamimax", 324, 2),
     new Book("Lord of the Mysteries", "爱潜水的乌贼", 1000, 1),
     new Book("Ryn of Avonside", "QuietValerie", 800, 2),
     new Book("Flowers in the Dungeon", "JAW (formerly JAK)", 120, 3),
-]; */
-let myLibrary = [];
+];
 
 function ifInvalidInput(...params) {
 
