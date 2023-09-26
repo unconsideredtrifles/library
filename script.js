@@ -1,16 +1,17 @@
 function Book(title, author, pages, readingStatusIdx) {
-    let readingStatuses = [
-        "To Read",
-        "Reading",
-        "Finished",
-    ];
     this.bookIdx = this.nextBookIdx;
     Object.getPrototypeOf(this).nextBookIdx++;
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.readingStatus = readingStatuses[readingStatusIdx - 1];
+    this.readingStatusIdx = readingStatusIdx;
+    this.readingStatus = this.readingStatuses[this.readingStatusIdx - 1];
 }
+Book.prototype.readingStatuses = [
+    "To Read",
+    "Reading",
+    "Finished",
+];
 Book.prototype.nextBookIdx = 0;
 
 let myLibrary = [
