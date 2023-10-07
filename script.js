@@ -35,11 +35,6 @@ function ifInvalidInput(...params) {
 }
 
 function addBookToLibrary(bookTitle, bookAuthor, pages, readingStatus) {
-    // ask the book title and author (and maybe book-related questions in the future)
-    // if the user presses cancel at any point, stop the prompting
-    // if the user completes all question, put an alert that notifies a book has been added
-    // if the user types in nothing and hits ok, ask them again.
-
     if(ifInvalidInput(bookTitle, bookAuthor, pages, readingStatus)) {
         return;
     }
