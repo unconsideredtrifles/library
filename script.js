@@ -1,18 +1,21 @@
-function Book(title, author, pages, readingStatusIdx) {
-    this.bookIdx = this.nextBookIdx;
-    Object.getPrototypeOf(this).nextBookIdx++;
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.readingStatusIdx = readingStatusIdx;
-    this.readingStatus = this.readingStatuses[this.readingStatusIdx - 1];
+class Book {
+    static readingStatuses = [
+        "To Read",
+        "Reading",
+        "Finished",
+    ];
+    static nextBookIdx = 0;
+
+    constructor(title, author, pages, readingStatusIdx) {
+        this.bookIdx = Book.nextBookIdx;
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.readingStatusIdx = readingStatusIdx;
+        this.readingStatus = Book.readingStatuses[readingStatusIdx - 1];
+        Book.nextBookIdx++;
+    }
 }
-Book.prototype.readingStatuses = [
-    "To Read",
-    "Reading",
-    "Finished",
-];
-Book.prototype.nextBookIdx = 0;
 
 let myLibrary = [
     new Book("Nexus Alpha", "Elamimax", 324, 2),
@@ -78,7 +81,7 @@ function displayBook(book) {
         });
 
         currentBook.readingStatusIdx = readingStatusIdx;
-        currentBook.readingStatus = currentBook.readingStatuses[readingStatusIdx - 1];
+        currentBook.readingStatus = Book.readingStatuses[readingStatusIdx - 1];
 
         let readingStatusText = readingStatus.getElementsByClassName("reading-status-text")[0];
         readingStatusText.textContent = currentBook.readingStatus;
