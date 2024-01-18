@@ -105,9 +105,16 @@ function displayAllBooks() {
 }
 
 const addBookDialog = document.getElementById("add-book-dialog");
+const bookAddForm = document.querySelector("#add-book-dialog > form");
 const submitBookBtn = document.getElementById("submit-book-btn");
 submitBookBtn.addEventListener("click", (e) => {
     e.preventDefault();
+
+    if(!bookAddForm.checkValidity()) {
+        bookAddForm.reportValidity();
+        return;
+    };
+
     let inputFields = document.getElementsByClassName("book-data-input");
     let bookTitle = inputFields[0].value;
     let bookAuthor = inputFields[1].value;
