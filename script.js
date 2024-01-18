@@ -137,6 +137,12 @@ dialogOpenBtn.addEventListener("click", () => {
     addBookDialog.showModal();
 });
 
+const dialogCloseBtn = document.getElementsByClassName("close-btn")[0];
+dialogCloseBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    addBookDialog.close();
+})
+
 document.addEventListener("DOMContentLoaded", () => {
     displayAllBooks();
 });
