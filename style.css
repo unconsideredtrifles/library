@@ -120,13 +120,25 @@
 #add-book-dialog {
     position: fixed;
     top: 25px;
+    bottom: 20%;
 
     width: 30%;
     border: none;
     margin: 0 auto;
+
+    overflow: visible;
+}
+
+#add-book-dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 #add-book-dialog > form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    height: 100%;
     margin: 0 1rem 1rem 1rem;
 }
 
@@ -143,12 +155,15 @@
     appearance: none;
     border: none;
     background-color: inherit;
+
+    font-size: 1.2rem;
 }
 
 #dialog-body {
    display: flex;
    flex-direction: column; 
    align-items: center;
+   gap: 1.5rem;
 }
 
 .book-data-input {
@@ -158,7 +173,6 @@
     height: 2rem;
     border-radius: 16px;
     padding: 0.3rem 0 0.3rem 1.2rem;
-    margin-bottom: 0.8rem;
 
     font-size: 0.95rem;
     color: #999;
@@ -172,14 +186,15 @@
 
 #page-number-wrapper {
     display: block;
-    padding-left: 2.6rem;
-    margin-bottom: 0.8rem;
+    width: 80%;
 }
 
 #page-number-wrapper span {
+    display: inline-block;
     appearance: none;
+
+    width: 18%;
     font-size: 1.2rem;
-    margin-right: 0.4rem;
 }
 
 #page-number-input {
@@ -187,24 +202,26 @@
     height: 1.6rem;
     padding: 0.2rem 0.2rem 0.2rem 0.5rem;
     border: 0.1px solid #999;
-    width: 70%;
+    width: 80%;
 }
 
 #reading-status-wrapper {
     display: block;
-    font-size: 1.2rem;
     position: relative;
-    padding-left: 2.6rem;
+    
+    width: 80%;
+    font-size: 1.2rem;
 }
 
 #reading-status-wrapper span {
-    margin-right: 0.3rem;
+    display: inline-block;
+    width: 18%;
 }
 
 #reading-status-wrapper::after {
     position: absolute;
     bottom: 40%;
-    right: 14%;
+    right: 1%;
 
     content: "⌄";
     color: #fff;
@@ -214,7 +231,7 @@
 #reading-status {
     appearance: none;
     outline: none;
-    width: 70%;
+    width: 80%;
     margin-bottom: 0.8rem;
     padding: 0.3rem 1.5rem 0.3rem 0.8rem;
     background-color: #1a1717;
@@ -227,6 +244,8 @@
 #dialog-footer {
     display: flex;
     justify-content: center;
+
+    margin-bottom: 0.8rem;
 }
 
 #submit-book-btn {

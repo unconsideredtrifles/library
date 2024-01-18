@@ -52,21 +52,22 @@
             <section id="dialog-body">
                 <input type="text" class="book-data-input" placeholder="Book Name">
                 <input type="text" class="book-data-input" placeholder="Book Author">
+
+                <label id="page-number-wrapper" for="page-number-input">
+                    <span>Pages</span>
+                    <input type="number" id="page-number-input" min="1">
+                </label>
+
+                <label id="reading-status-wrapper" for="reading-status">
+                    <span>Status</span>
+                    <select id="reading-status">
+                        <option selected value="1">To Read</option>
+                        <option value="2">Reading</option>
+                        <option value="3">Finished</option>
+                    </select>
+                </label>
             </section>
 
-            <label id="page-number-wrapper" for="page-number-input">
-                <span>Pages</span>
-                <input type="number" id="page-number-input" min="1">
-            </label>
-
-            <label id="reading-status-wrapper" for="reading-status">
-                <span>Status</span>
-                <select id="reading-status">
-                    <option selected value="1">To Read</option>
-                    <option value="2">Reading</option>
-                    <option value="3">Finished</option>
-                </select>
-            </label>
 
             <section id="dialog-footer">
                 <button id="submit-book-btn">Submit</botton>
